@@ -3,6 +3,7 @@ chardet==4.0.0
 click==8.0.1
 configparser==5.0.2
 docker-pycreds==0.4.0
+efficientnet-pytorch==0.7.1
 filelock==3.0.12
 flake8 @ file:///tmp/build/80754af9/flake8_1620776156532/work
 gdown==3.13.0
