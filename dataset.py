@@ -5,11 +5,15 @@ import os
 from PIL import Image
 
 class FashionDataset(Dataset):
-  def __init__(self, root, root_dir='images', transform=None, target_transform=None):
+  def __init__(self, root, root_dir='images', transform=None, target_transform=None, samples=None):
     self.root = root
     self.transform = transform
     self.target_transform = target_transform
-    self.samples = os.listdir(str(self.root / root_dir))
+
+    if samples is not None:
+      self.samples = os.listdir(str(self.root / root_dir))
+    else:
+      self.samples = samples
 
     # Attributes dataframe
     self.df_attributes = pd.read_csv(str(self.root / 'attributes.csv'))
