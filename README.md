@@ -5,8 +5,9 @@
 
 ## Usage:
 
-1. **Training**<br>
-To train the model, refer the notebook `Assignment.ipynb`.<br>
+1. **Preprocessing and training **<br>
+To train the model, refer the notebook [Assignment.ipynb](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/Assignment.ipynb).<br>
+
 **NOTE:- It is recommend to leverage free Colab GPU resource, if personal GPU is not available, to train models faster.**
 
 2. **Experiment-Tracking**<br>
