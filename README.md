@@ -5,7 +5,7 @@
 
 ## Usage:
 
-1. **Preprocessing and training **<br>
+1. **Preprocessing and training**<br>
 To train the model, refer the notebook [Assignment.ipynb](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/Assignment.ipynb).<br>
 
 **NOTE:- It is recommend to leverage free Colab GPU resource, if personal GPU is not available, to train models faster.**
@@ -14,5 +14,5 @@ To train the model, refer the notebook [Assignment.ipynb](https://github.com/vas
 -> Weights and Biases: https://wandb.ai/vs74/Flixstock-assignment
 
 3. **Inference** <br>
--> Run  `python inference.py` script in the terminal<br>
+-> Run  `python inference.py` script in the terminal.<br>
 -> This will generate `test_attributes.csv` file under `data` directory for the test images located in `data/test` directory. 
