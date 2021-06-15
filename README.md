@@ -4,6 +4,7 @@
 For more details, refer [here](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/Problem_Statement.pdf)
 
 ## Install dependencies
+Inside a virtual environment ( `conda` / `virtualenv`), install the dependencies by running the command below in the terminal. <br>
 `pip install -r requirements.txt`
 
 ## Usage:
