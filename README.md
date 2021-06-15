@@ -9,9 +9,9 @@ For more details, refer [here](https://github.com/vasudev-sharma/Flixstock-assig
 ## Usage:
 
 1. **Preprocessing and training**<br>
-To train the model, refer the notebook [Assignment.ipynb](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/Assignment.ipynb).<br>
+  To train the model, refer the notebook [Assignment.ipynb](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/Assignment.ipynb).<br>
 
-**NOTE:- It is recommend to leverage free Colab GPU resource, if personal GPU is not available, to train models faster.**
+  **NOTE:-** It is recommend to leverage free Colab GPU resource, if personal GPU is not available, to train models faster.
 
 2. **Experiment-Tracking**<br>
 -> Weights and Biases: https://wandb.ai/vs74/Flixstock-assignment
@@ -20,5 +20,11 @@ To train the model, refer the notebook [Assignment.ipynb](https://github.com/vas
 -> Run  `python inference.py` script in the terminal.<br>
 -> This will generate `test_attributes.csv` file under `data` directory for the test images located in `data/test` directory. 
 
-## Models finetuned
-Under the `models` directory, fine tuned models on 
+## Models
+Under the `models` directory, fine tuned models are available.
+
+The following models were finetuned on the dataset<br>
+
+a) EfficientNet <br>
+b) ResNet <br>
+c) DenseNet<br>
