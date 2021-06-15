@@ -33,10 +33,8 @@ def get_csv(preds, csv_filename, filenames_images):
     start_pattern_idx = end_sleeve_idx + 1
     pattern_targets = preds[:, start_pattern_idx:]
 
-     # Pattern attribute: label encoding of one-hot encoded vectors
+    # Pattern attribute: label encoding of one-hot encoded vectors
     pattern_targets_labels = np.where(pattern_targets == 1)[1]
-
-    df_attributes = pd.read_csv(str(Path(csv_filename).parent / 'attributes.csv'))
 
     df_attributes_test = pd.DataFrame({
         'filename': list(filenames_images),
@@ -51,7 +49,7 @@ def get_csv(preds, csv_filename, filenames_images):
     assert len(df_attributes_test) == len(filenames_images)
 
     # save csv file
-    df_attributes.to_csv(str(Path(csv_filename).parent / csv_filename))
+    df_attributes_test.to_csv(str(Path(csv_filename).parent / csv_filename))
 
 
 
