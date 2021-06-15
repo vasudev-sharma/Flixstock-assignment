@@ -5,7 +5,9 @@ For more details, refer [here](https://github.com/vasudev-sharma/Flixstock-assig
 
 ## Install dependencies
 Inside a virtual environment ( `conda` / `virtualenv`), install the dependencies by running the command below in the terminal. <br>
-`pip install -r requirements.txt`
+```bash
+$ pip install -r requirements.txt
+```
 
 ## Usage:
 
@@ -18,7 +20,10 @@ Inside a virtual environment ( `conda` / `virtualenv`), install the dependencies
 -> Weights and Biases: https://wandb.ai/vs74/Flixstock-assignment
 
 3. **Inference** <br>
--> Run  `python inference.py` script in the terminal.<br>
+-> Run the script in the terminal.<br>
+```bash 
+$ python inference.py
+```
 -> This will generate `test_attributes.csv` file under `data` directory for the test images located in `data/test` directory. 
 
 ## Models
