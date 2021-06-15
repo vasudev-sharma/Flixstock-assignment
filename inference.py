@@ -10,7 +10,7 @@ from model import get_model
 import pandas as pd
 
 def get_csv(preds, csv_filename, filenames_images):
-    # TODO: Save the model predictions in CSV file
+    # Save the model predictions in CSV file
 
     # Start and end indexes of neck attribute
     start_neck_idx = 0
@@ -49,7 +49,7 @@ def get_csv(preds, csv_filename, filenames_images):
     assert len(df_attributes_test) == len(filenames_images)
 
     # save csv file
-    df_attributes_test.to_csv(str(Path(csv_filename).parent / csv_filename))
+    df_attributes_test.to_csv(str(Path('data') / csv_filename))
 
 
 
