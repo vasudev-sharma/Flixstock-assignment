@@ -7,10 +7,42 @@ from dataset import FashionDataset
 import numpy as np
 import os
 from model import get_model
+import pandas as pd
 
-def get_csv(filename):
+def get_csv(preds, csv_filename, filenames_images):
     # TODO: Save the model predictions in CSV file
-    pass
+
+    # Start and end indexes of neck attribute
+    start_neck_idx = 0
+    end_neck_idx = 6
+    neck_targets = preds[:, start_neck_idx:end_neck_idx+1]
+    
+    # Neck attribute: label encoding of one-hot encoded vectors
+    neck_targets_labels = np.where(neck_targets == 1)[1]
+
+    # Start and end indexes of sleeve_length attribute
+    start_sleeve_idx = end_neck_idx + 1
+    end_sleeve_idx = 10
+
+    sleeve_targets = preds[:, start_sleeve_idx:end_sleeve_idx+1]
+
+    # Sleeve attribute: label encoding of one-hot encoded vectors
+    sleeve_targets_labels = np.where(sleeve_targets == 1)[1]
+
+    # Start of pattern attribute
+    start_pattern_idx = end_sleeve_idx + 1
+    pattern_targets = preds[:, start_pattern_idx:]
+
+     # Pattern attribute: label encoding of one-hot encoded vectors
+    sleeve_targets_labels = np.where(sleeve_targets == 1)[1]
+
+
+    df_attributes = pd.read_csv(str(Path(csv_filename).parent / 'attributes.csv'))
+
+
+    assert len(df_attributes) == len(csv_filename)
+    df.to_csv(str(Path(csv_filename).parent / csv_filename))
+
 
 
 if __name__ == '__main__':
@@ -41,21 +73,20 @@ if __name__ == '__main__':
     # get the model predicitons on the test dataset
     model.eval()
     with torch.no_grad():
-        for batch_idx, (images, _) in enumerate(dl_test, 1):
+        for batch_idx, (images, _, filenames_images) in enumerate(dl_test, 1):
             # Forward pass
             preds = torch.sigmoid(model(images))
 
             # threshold the values
-            preds = np.array(preds.numpy() > 0.5, dtype=float)
-            print(preds)
+            preds = np.array(preds.numpy() > 0.5, dtype=float)          
             
 
 
     
     # Create csv file for predictions
-    test_filename = 'test_attributes.csv'
+    test_filename = 'data/test_attributes.csv'
 
-    get_csv(test_filename)
+    get_csv(preds, test_filename, filenames_images)
 
 
 

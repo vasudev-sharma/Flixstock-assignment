@@ -51,7 +51,7 @@ class FashionDataset(Dataset):
     target = torch.tensor(self.df_attributes.iloc[0].tolist()[target_start_idx:], dtype=torch.float32)
 
     # return target and labels
-    return image, target
+    return image, target, filename_image
   
   def preprocess_targets(self):
     # Drop rows which have na
