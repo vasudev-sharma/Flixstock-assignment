@@ -4,10 +4,12 @@ import pandas as pd
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from dataset import FashionDataset
+import numpy as np
 import os
 from model import get_model
 
-def test_csv():
+def get_csv(filename):
+    # TODO: Save the model predictions in CSV file
     pass
 
 
@@ -20,7 +22,8 @@ if __name__ == '__main__':
     model = get_model(model_name)
    
     model_path = Path('model/densenet121_model.h5')
-    model.load_state_dict(torch.load(str(model_path))['state_dict'], map_location=device)
+    checkpoint = torch.load(str(model_path), map_location=device)
+    model.load_state_dict(checkpoint)
 
     # path of test data
     test_data_path = Path('data')
@@ -36,17 +39,23 @@ if __name__ == '__main__':
     print('Size of the dataset is ', len(ds_test))
 
     # get the model predicitons on the test dataset
+    model.eval()
     with torch.no_grad():
         for batch_idx, (images, _) in enumerate(dl_test, 1):
             # Forward pass
             preds = torch.sigmoid(model(images))
 
             # threshold the values
-            preds = torch.tensor(preds > 0.5, dtype=torch.float)
+            preds = np.array(preds.numpy() > 0.5, dtype=float)
             print(preds)
+            
 
 
+    
+    # Create csv file for predictions
     test_filename = 'test_attributes.csv'
+
+    get_csv(test_filename)
 
 
 
