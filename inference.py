@@ -34,14 +34,24 @@ def get_csv(preds, csv_filename, filenames_images):
     pattern_targets = preds[:, start_pattern_idx:]
 
      # Pattern attribute: label encoding of one-hot encoded vectors
-    sleeve_targets_labels = np.where(sleeve_targets == 1)[1]
-
+    pattern_targets_labels = np.where(pattern_targets == 1)[1]
 
     df_attributes = pd.read_csv(str(Path(csv_filename).parent / 'attributes.csv'))
 
+    df_attributes_test = pd.DataFrame({
+        'filename': list(filenames_images),
+        "neck": neck_targets_labels.tolist(),
+        'sleeve': sleeve_targets_labels.tolist(),
+        'pattern': pattern_targets_labels
+    })
 
-    assert len(df_attributes) == len(csv_filename)
-    df.to_csv(str(Path(csv_filename).parent / csv_filename))
+    print(df_attributes_test.head())
+
+    # sanity check 
+    assert len(df_attributes_test) == len(filenames_images)
+
+    # save csv file
+    df_attributes.to_csv(str(Path(csv_filename).parent / csv_filename))
 
 
 
@@ -77,14 +87,14 @@ if __name__ == '__main__':
             # Forward pass
             preds = torch.sigmoid(model(images))
 
-            # threshold the values
+            # threshold the predictions
             preds = np.array(preds.numpy() > 0.5, dtype=float)          
             
 
 
     
     # Create csv file for predictions
-    test_filename = 'data/test_attributes.csv'
+    test_filename = 'test_attributes.csv'
 
     get_csv(preds, test_filename, filenames_images)
 
