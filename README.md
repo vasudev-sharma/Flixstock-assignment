@@ -33,7 +33,7 @@ The following models were finetuned on the dataset<br>
 
 a) [EfficientNet](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/model/densenet121_model.h5) <br>
 b) [ResNet](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/model/efficientnet-b3.h5) <br>
-c) [DenseNet](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/model/resnet50.h5<br>
+c) [DenseNet](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/model/resnet50.h5)<br>
 
 ## TODO
 - [ ] Look at optimal ways of reducing bias (Don't drop the 'NA' values of [`attribute.csv`](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/data/attributes.csv) file)
