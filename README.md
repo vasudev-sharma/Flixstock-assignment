@@ -24,7 +24,7 @@ $ pip install -r requirements.txt
 ```bash 
 $ python inference.py
 ```
--> This will generate `test_attributes.csv` file under `data` directory for the test images located in `data/test` directory. 
+-> This will generate [`test_attributes.csv`](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/data/test_attributes.csv) file under `data` directory for the test images located in `data/test` directory. 
 
 ## Models
 Under the `models` directory, fine tuned models are available.
@@ -34,3 +34,6 @@ The following models were finetuned on the dataset<br>
 a) EfficientNet <br>
 b) ResNet <br>
 c) DenseNet<br>
+
+## TODO
+- [ ] Look at optimal ways of reducing bias (Don't drop the 'NA' values of [`attribute.csv`](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/data/attributes.csv) file)
