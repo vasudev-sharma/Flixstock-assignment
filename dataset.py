@@ -3,15 +3,17 @@ import numpy as np
 from torch.utils.data import Dataset
 import os
 from PIL import Image
+import torch
 
 class FashionDataset(Dataset):
   def __init__(self, root, root_dir='images', transform=None, target_transform=None, samples=None):
     self.root = root
     self.transform = transform
     self.target_transform = target_transform
+    self.root_dir = root_dir
 
     if samples is not None:
-      self.samples = os.listdir(str(self.root / root_dir))
+      self.samples = os.listdir(str(self.root / self.root_dir))
     else:
       self.samples = samples
 
@@ -33,9 +35,9 @@ class FashionDataset(Dataset):
     filename_image = self.samples[index]
 
     try:
-      image = Image.open(str(self.root / 'images' / filename_image)).convert('RGB')
+      image = Image.open(str(self.root / self.root_dir / filename_image)).convert('RGB')
     except Exception as e:
-      print('Path of the image is', str(self.root / 'images' / filename_image))
+      print('Path of the image is', str(self.root / self.root_dir / filename_image))
       print('Unable to read the image')
 
     # retreive the specific row of given index

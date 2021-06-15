@@ -5,6 +5,7 @@ from torchvision import transforms
 from torch.utils.data import DataLoader
 from dataset import FashionDataset
 import os
+from model import get_model
 
 def test_csv():
     pass
@@ -15,8 +16,11 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # load a model
-    model_path = Path('model/model.h5')
-    model = torch.load(str(model_path), map_location=device)
+    model_name = 'densenet121'
+    model = get_model(model_name)
+   
+    model_path = Path('model/densenet121_model.h5')
+    model.load_state_dict(torch.load(str(model_path))['state_dict'], map_location=device)
 
     # path of test data
     test_data_path = Path('data')
@@ -32,7 +36,6 @@ if __name__ == '__main__':
     print('Size of the dataset is ', len(ds_test))
 
     # get the model predicitons on the test dataset
-    torch.eval()
     with torch.no_grad():
         for batch_idx, (images, _) in enumerate(dl_test, 1):
             # Forward pass
