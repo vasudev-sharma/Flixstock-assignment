@@ -37,3 +37,6 @@ c) [DenseNet](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master
 
 ## TODO
 - [ ] Look at optimal ways of reducing bias (Don't drop the 'NA' values of [`attribute.csv`](https://github.com/vasudev-sharma/Flixstock-assignment/blob/master/data/attributes.csv) file)
+- [ ] Use transfer learning rather than fine tuning your models
+- [ ] Explore data augmentations
+
